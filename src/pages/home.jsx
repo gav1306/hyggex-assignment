@@ -10,12 +10,6 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import {
   EnterFullScreenIcon,
   HomeIcon,
   InfoCircledIcon,
@@ -23,14 +17,7 @@ import {
   ReloadIcon,
   SpeakerLoudIcon,
 } from "@radix-ui/react-icons";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -44,7 +31,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { NavigationMenuLink } from "@radix-ui/react-navigation-menu";
 import { useState, useEffect } from "react";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
@@ -69,9 +55,9 @@ function Home() {
   }, [api]);
 
   return (
-    <div className="m-10">
+    <div className="m-5 md:m-10">
       <div>
-        <Breadcrumb className="mx-16">
+        <Breadcrumb className=" md:mx-10 lg:mx-16">
           <BreadcrumbList>
             <BreadcrumbItem>
               <HomeIcon width={20} height={20} color="#3A3740" />
@@ -93,7 +79,7 @@ function Home() {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <h1 className="my-10 mx-16 mt-14 text-3xl bg-gradient-to-b from-[#06286E] to-[#164EC0] bg-clip-text text-transparent font-bold">
+      <h1 className="my-5 md:my-6 lg:my-10 text-2xl lg:mx-16 mt-8 md:mt-11 lg:mt-14 md:text-3xl bg-gradient-to-b from-[#06286E] to-[#164EC0] bg-clip-text text-transparent font-bold">
         Relations and Functions (Mathematics)
       </h1>
       <div>
@@ -159,7 +145,10 @@ function Home() {
           </ToggleGroup>
         </div>
         <div>
-          <Carousel className="w-[712px] h-[394px] m-auto " setApi={setApi}>
+          <Carousel
+            className="md:w-[712px] md:h-[394px] m-auto "
+            setApi={setApi}
+          >
             <CarouselContent>
               {Array.from({ length: 5 }).map((_, index) => (
                 <CarouselItem key={index}>
@@ -219,7 +208,7 @@ function Home() {
           </Carousel>
         </div>
       </div>
-      <div className="flex justify-between items-center mt-16">
+      <div className=" flex flex-col md:flex-row gap-4 justify-between items-center mt-16">
         <img src={logo_secondary} alt="" className="w-[217px]" />
         <Button
           variant="ghost"
